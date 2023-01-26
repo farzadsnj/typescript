@@ -2,7 +2,34 @@ export {};
 let message = "hello farzadsnj";
 console.log(message);
 
-let myVal: unknown;
+let isBoolean: boolean = true;
+let total: number = 0;
+let lname: string = "farzad";
+let sentence: string = `my name is ${lname}`;
+console.log(sentence);
+
+let n: null = null;
+let u: undefined = undefined;
+// let isNew:boolean=null
+let isNew2: undefined = undefined;
+
+let list1:number[]=[1,2,3]
+let list2:Array<number>=[1,2,3]
+let person1: [string, number] =['farzad', 22]
+
+enum Color {Red, Green, Blue}
+let c: Color = Color.Green //1
+
+let randomVal: any=10
+randomVal=true
+randomVal='farzad'
+randomVal.toUpperCase()
+
+let myVal: unknown=10
+
+let multiType: number|boolean
+multiType=20
+multiType=true
 
 function hasName(obj: any): obj is { name: string } {
   return !!obj && typeof obj === "object" && "name" in obj;
@@ -11,6 +38,17 @@ function hasName(obj: any): obj is { name: string } {
 if (hasName(myVal)) {
   console.log(myVal.name);
 }
+
+function add2(num1: number, num2?: number): number {
+  if (num2) {
+    return num1 + num2;
+  } else {
+    return num1;
+  }
+}
+
+add2(5, 6);
+add2(5);
 
 function add(num1: number, num2: number = 10): number {
   if (num2) {
@@ -25,7 +63,7 @@ add(5);
 
 interface Person {
   fname: string;
-  lname: string;
+  lname?: string;
 }
 
 function fullName(person: Person) {
